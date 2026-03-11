@@ -10,6 +10,8 @@
   <meta name="outhor" content=" Mahmoud Ebrahim">
   <meta name="keywords" content="Html,css,JS,Coding Html and css">
   <title> Mahmoud Ebrahim - My Portfolio</title>
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link href="bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -19,14 +21,14 @@
     min-height: 100vh;
     background: linear-gradient(to bottom, rgba(2, 8, 23, 0.70), rgba(2, 8, 23, 0.82), rgba(2, 8, 23, 0.94)),
       url('img\ \(14\).jpg');
-    background-size: cover;
+    background-size: 100%;
     background-repeat: no-repeat;
   }
 </style>
 
 <body onload="animateBars()">
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg fixed-top fade-up">
     <div class="container">
       <a class="navbar-brand" href="index.html">⚡Mahmoud⚡</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -35,41 +37,38 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <!-- Home -->
-          <li class="dropdown">
-            <a class="dropdown-toggle nav-link fs-4 active" id="nav-link " href="index.html"
-              data-bs-toggle="dropdown">Home</a>
+          <div class="dropdown">
+            <a class="dropdown-toggle nav-link fs-4 active" data-bs-toggle="dropdown">Home</a>
             <ol class="dropdown-menu text-center">
-              <li class="dropdown-item"><a href="index.html" id="nav-link">Home</a></li>
-              <li class="dropdown-item"><a href="#about" id="nav-link">About</a></li>
-              <li class="dropdown-item"><a href="#skills" id="nav-link">Skills</a></li>
-              <li class="dropdown-item"><a href="#services" id="nav-link">Services</a></li>
-              <li class="dropdown-item"><a href="#Projects" id="nav-link">Projects</a></li>
-              <li class="dropdown-item"><a href="#Contact" id="nav-link">Contact us</a></li>
+              <li><a href="index.html" class="dropdown-item">Home</a></li>
+              <li><a href="#about" class="dropdown-item">About</a></li>
+              <li><a href="#skills" class="dropdown-item">Skills</a></li>
+              <li><a href="#services" class="dropdown-item">Services</a></li>
+              <li><a href="#Projects" class="dropdown-item">Projects</a></li>
+              <li><a href="#Contact" class="dropdown-item">Contact us</a></li>
             </ol>
-          </li>
+          </div>
           <!-- Projects -->
           <li class="dropdown">
-            <a class="dropdown-toggle nav-link fs-4 " id="nav-link " href="Projects.html"
-              data-bs-toggle="dropdown">Projects</a>
+            <a class="dropdown-toggle nav-link fs-4" data-bs-toggle="dropdown">Projects</a>
             <ol class="dropdown-menu text-center">
-              <li class="dropdown-item"><a href="Projects.html" id="nav-link">Projects</a></li>
-              <li class="dropdown-item"><a href="#Contact" id="nav-link">Contact us</a></li>
+              <li><a href="Projects.html" class="dropdown-item">Projects</a></li>
+              <li><a href="#Contact" class="dropdown-item">Contact us</a></li>
             </ol>
           </li>
           <!-- cv -->
           <li class="dropdown">
-            <a class="dropdown-toggle nav-link fs-4 " id="nav-link " href="cv.html" data-bs-toggle="dropdown">cv</a>
+            <a class="dropdown-toggle nav-link fs-4" href="cv.html" data-bs-toggle="dropdown">cv</a>
             <ol class="dropdown-menu text-center">
-              <li class="dropdown-item"><a href="cv.html" id="nav-link">CV</a></li>
-              <li class="dropdown-item"><a href="#Contact" id="nav-link">Contact us</a></li>
+              <li><a href="cv.html" class="dropdown-item">CV</a></li>
+              <li><a href="#Contact" class="dropdown-item">Contact us</a></li>
             </ol>
           </li>
           <!-- Contact -->
           <li class="dropdown">
-            <a class="dropdown-toggle nav-link fs-4 " id="nav-link " href="index.html"
-              data-bs-toggle="dropdown">Contact</a>
+            <a class="dropdown-toggle nav-link fs-4" href="contact.html" data-bs-toggle="dropdown">Contact</a>
             <ol class="dropdown-menu text-center">
-              <li class="dropdown-item"><a href="contact.html" id="nav-link">Contact us</a></li>
+              <li><a href="contact.html" class="dropdown-item">Contact us</a></li>
             </ol>
           </li>
         </ul>
@@ -84,8 +83,20 @@
       <div class="profile-hex fade-up" id="profile-img">
         <img src="محمود.png">
       </div>
-      <h1 class="fade-up">✨Mahmoud <span>Ebrahem</span>✨</h1>
-      <p class="lead fade-up">💥And I'm a <strong>Frontend Developer & Web Designer💥</strong></p>
+      <h1 class="fade-up">✨Mahmoud <span>Ebrahim</span>✨</h1>
+      <p class="lead fade-up">💥And I'm a <strong class="multiple-text"></strong>💥</p>
+      <div class="social-buttons d-flex flex-wrap justify-content-center fade-up">
+        <a href="https://github.com/engmahmoudebrahim2026-eng" target="_blank" class="btn-custom"><i
+            class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/mahmoud-ebrahem-1220083b5?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          target="_blank" class="btn-custom"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/mahmoud190962/?utm_source=qr&r=nametag" target="_blank" class="btn-custom"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1CKDxamzgP/" target="_blank" class="btn-custom"><i
+            class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/201120283294" target="_blank" class="btn-custom"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <br>
       <p class="lead fade-up">Hi! I'm Mahmoud Ebrahem, a passionate Frontend Developer with over 3 years of experience
         building responsive, interactive, and beautiful websites. I specialize in HTML, CSS, JavaScript, Bootstrap,
         Tailwind, and modern frontend frameworks. My goal is to deliver high-quality solutions that exceed client
@@ -99,18 +110,29 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="about-section">
-    <div class="profile-container">
-      <img src="محمود.png" alt="Mahmoud Ebrahem" class="profile-img">
-      <h1 class="title">About Me</h1>
-      <div class="name">Mahmoud Ebrahem</div>
-      <div class="roles">
+  <section id="about" class="about-section fade-up">
+    <div class="profile-container fade-up">
+      <img src="محمود 2.jpg" alt="Mahmoud Ebrahem" class="profile-img fade-up">
+      <h1 class="title fade-up">About Me</h1>
+      <div class="name fade-up">Mahmoud Ebrahem</div>
+      <div class="roles fade-up">
         <span>Frontend Developer</span> •
         <span>Graphic Designer</span>
       </div>
+      <div class="social-buttons d-flex flex-wrap justify-content-center fade-up">
+        <a href="https://github.com/engmahmoudebrahim2026-eng" target="_blank" class="btn-custom"><i
+            class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/mahmoud-ebrahem-1220083b5?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          target="_blank" class="btn-custom"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/mahmoud190962/?utm_source=qr&r=nametag" target="_blank" class="btn-custom"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1CKDxamzgP/" target="_blank" class="btn-custom"><i
+            class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/201120283294" target="_blank" class="btn-custom"><i class="fab fa-whatsapp"></i></a>
+      </div>
     </div>
 
-    <ul class="nav nav-tabs nav-tabs-custom justify-content-center" id="aboutTabs" role="tablist">
+    <ul class="fade-up nav nav-tabs nav-tabs-custom justify-content-center" id="aboutTabs" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="education-tab" data-bs-toggle="tab" data-bs-target="#education"
           type="button" role="tab">Profile</button>
@@ -129,7 +151,7 @@
       </li>
     </ul>
 
-    <div class="tab-content" id="aboutTabsContent">
+    <div class="tab-content fade-up" id="aboutTabsContent">
       <div class="tab-pane fade show active" id="education" role="tabpanel">
         <div class="info-item">
           <div class="info-title">Profile</div>
@@ -187,10 +209,10 @@
   </section>
 
   <!-- skills -->
-  <section id="skills" class="skills-container">
+  <section id="skills" class="skills-container fade-up">
     <h1 class="title">My Skills</h1>
     <div class="row">
-      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 fade-up">
         <div class="icon-wrapper"><img
             src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5"></div>
         <div class="skill-content">
@@ -202,7 +224,7 @@
         <span class="percentage">90%</span>
       </div>
 
-      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 fade-up">
         <div class="icon-wrapper"><img
             src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3"></div>
         <div class="skill-content">
@@ -214,7 +236,7 @@
         <span class="percentage">80%</span>
       </div>
 
-      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 fade-up">
         <div class="icon-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
             alt="Tailwind CSS"></div>
         <div class="skill-content">
@@ -226,7 +248,7 @@
         <span class="percentage">80%</span>
       </div>
 
-      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 fade-up">
         <div class="icon-wrapper"><img
             src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript">
         </div>
@@ -239,7 +261,7 @@
         <span class="percentage">60%</span>
       </div>
 
-      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 fade-up">
         <div class="icon-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
             alt="React"></div>
         <div class="skill-content">
@@ -251,7 +273,7 @@
         <span class="percentage">60%</span>
       </div>
 
-      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 fade-up">
         <div class="icon-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"
             alt="Figma"></div>
         <div class="skill-content">
@@ -263,7 +285,7 @@
         <span class="percentage">90%</span>
       </div>
 
-      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 fade-up">
         <div class="icon-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Photoshop_CC_icon.png"
             alt="Adobe Photoshop"></div>
         <div class="skill-content">
@@ -275,7 +297,7 @@
         <span class="percentage">65%</span>
       </div>
 
-      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+      <div class="skill col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 fade-up">
         <div class="icon-wrapper"><img
             src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg"
             alt="Adobe Illustrator"></div>
@@ -291,19 +313,19 @@
   </section>
 
   <!-- services -->
-  <section class="services-section" id="Projects">
-    <h1 class="title">My services </h1>
-    <div class="row">
+  <section class="services-section fade-up" id="Projects">
+    <h1 class="title fade-up">My services </h1>
+    <div class="row fade-up">
 
-      <div class="col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 service-card">
-          <div class="service-icon"><i class="fas fa-globe"></i></div>
-          <h3 class="service-title">Web Design</h3>
-          <p class="service-description">Professional Web Designer, designed 50+ web templates for clients with full
-            satisfaction.</p>
-          <a href="#" class="hire-btn btn-custom">Hire Me</a>
+      <div class="col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 service-card fade-up">
+        <div class="service-icon"><i class="fas fa-globe"></i></div>
+        <h3 class="service-title">Web Design</h3>
+        <p class="service-description">Professional Web Designer, designed 50+ web templates for clients with full
+          satisfaction.</p>
+        <a href="#" class="hire-btn btn-custom">Hire Me</a>
       </div>
 
-      <div class="col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 service-card">
+      <div class="col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 service-card fade-up">
         <div class="service-icon"><i class="fas fa-code"></i></div>
         <h3 class="service-title">Web Development</h3>
         <p class="service-description">Professional Web Developer, developed 50+ web templates for clients with full
@@ -311,7 +333,7 @@
         <a href="#" class="hire-btn btn-custom submit-btn btn-custom">Hire Me</a>
       </div>
 
-      <div class="col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 service-card">
+      <div class="col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 service-card fade-up">
         <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
         <h3 class="service-title">Graphic Design</h3>
         <p class="service-description">Professional Graphic Designer, created 50+ designs for clients with full
@@ -319,60 +341,58 @@
         <a href="#" class="hire-btn btn-custom">Hire Me</a>
       </div>
     </div>
-
-    <div class="text-center mt-5">
-      <a href="Projects.html" class="submit-btn btn-custom">learn More</a>
-    </div>
   </section>
 
-  <section class="services-section" id="Projects">
-    <h1 class="title">My Projects </h1>
-    <div class="row">
-
-      <div class="col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 service-card">
-        <img src="img (2).png" alt="Web Design Project" class="portfolio-image">
-        <div class="card-content">
-          <h3 class="card-title p-3">Website_STRICT</h3>
-          <a href="https://github.com/yourusername/web-design-project" target="_blank"
-            class="btn btn-custom hire-btn ">View Project on
-            GitHub</a>
+  <!-- Projects -->
+  <section class="services-section fade-up" id="Projects">
+    <h1 class="title fade-up">My Projects </h1>
+    <div class="row fade-up">
+      <!-- Website_STRICT -->
+      <div class="col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 service-card fade-up protfalio-box">
+        <div class="protfalio-box">
+          <img src="img (2).png" alt="">
+          <div class="protfolio-layer">
+            <h4>STRICT</h4>
+            <a href="https://engmahmoudebrahim2026-eng.github.io/Website-STRICT/"><i
+                class='box bx-link-external'></i></a>
+          </div>
         </div>
       </div>
-
-      <div class="col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 service-card">
-        <img src="img (3).png" alt="Full-Stack Web App" class="portfolio-image">
-        <div class="card-content">
-          <h3 class="card-title p-3">Website_Food_lavar</h3>
-          <a href="https://github.com/yourusername/fullstack-app" target="_blank" class="btn btn-custom hire-btn ">View
-            Project on
-            GitHub</a>
+      <!-- Website_Food_lavar -->
+      <div class="col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 service-card fade-up protfalio-box">
+        <div class="protfalio-box">
+          <img src="img (3).png" alt="" class="portfolio-image">
+          <div class="protfolio-layer">
+            <h4>Food_lavar</h4>
+            <a href="https://github.com/yourusername/fullstack-app"><i class='box bx-link-external'></i></a>
+          </div>
         </div>
       </div>
-
-      <div class="col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 service-card">
-        <img src="img (4).png" alt="Graphic Design Portfolio" class="portfolio-image">
-        <div class="card-content">
-          <h3 class="card-title p-3">Website_AI_Personality</h3>
-          <a href="https://github.com/yourusername/graphic-portfolio" target="_blank"
-            class="btn btn-custom hire-btn ">View Project on
-            GitHub</a>
+      <!-- Website_AI_Personality -->
+      <div class="col-12 col-ms-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 service-card fade-up protfalio-box">
+        <div class="protfalio-box">
+          <img src="img (4).png" alt="">
+          <div class="protfolio-layer">
+            <h4>AI_Personality</h4>
+            <a href="https://engmahmoudebrahim2026-eng.github.io/AI_Personality_Website_PRO_Interactive/"><i
+                class='box bx-link-external'></i></a>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="text-center mt-5">
-      <a href="Projects.html" class="submit-btn btn-custom">learn More</a>
-    </div>
+      <div class="text-center mt-5 fade-up">
+        <a href="Projects.html" class="hire-btn btn-custom submit-btn btn-custom">learn More</a>
+      </div>
   </section>
 
-  <section id="Contact" class="contact-section container">
-    <div class="profile-container">
-      <img src="محمود.png" alt="Mahmoud Ebrahem" class="profile-img">
-      <h1 class="title">👇Contact Me👇</h1>
+  <!-- Contact -->
+  <section id="Contact" class="contact-section container fade-up">
+    <div class="profile-container fade-up">
+      <img src="محمود.png" alt="Mahmoud Ebrahem" class="profile-img fade-up">
+      <h1 class="title fade-up">👇Contact Me👇</h1>
     </div>
-    <form id="contactForm" class="form-container">
+    <form id="contactForm" class="form-container fade-up">
 
-      <div class="form-group">
+      <div class="form-group fade-up">
         <label for="firstName">First Name</label>
         <input type="text" class="form-control" id="firstName" name="firstName" required
           placeholder="Enter your first name">
@@ -380,7 +400,7 @@
         <div class="valid-feedback"></div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group fade-up">
         <label for="lastName">Last Name</label>
         <input type="text" class="form-control" id="lastName" name="lastName" required
           placeholder="Enter your last name">
@@ -388,28 +408,28 @@
         <div class="valid-feedback"></div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group fade-up">
         <label for="phone">Phone</label>
         <input type="tel" class="form-control" id="phone" name="phone" required placeholder="Your phone number">
         <div class="invalid-feedback"></div>
         <div class="valid-feedback"></div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group fade-up">
         <label for="subject">Subject</label>
         <input type="text" class="form-control" id="subject" name="subject" required placeholder="Message subject">
         <div class="invalid-feedback"></div>
         <div class="valid-feedback"></div>
       </div>
 
-      <div class="form-group full">
+      <div class="form-group full fade-up">
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" required placeholder="your.email@example.com">
         <div class="invalid-feedback"></div>
         <div class="valid-feedback"></div>
       </div>
 
-      <div class="form-group full">
+      <div class="form-group full fade-up">
         <label for="message">Message</label>
         <textarea class="form-control" id="message" name="message" rows="6" required
           placeholder="Write your message here..."></textarea>
@@ -417,18 +437,21 @@
         <div class="valid-feedback"></div>
       </div>
 
-      <button type="submit" class="submit-btn btn-custom " id="submitBtn">Submit</button>
+      <button type="submit" class="submit-btn btn-custom fade-up" id="submitBtn">Submit</button>
 
-      <div id="formMessage" class="form-message"></div>
+      <div id="formMessage" class="form-message fade-up"></div>
     </form>
   </section>
 
+  <!-- footer -->
   <footer class="text-center p-1" style="background: rgba(2, 8, 23, 0.96);">
     <p>&copy; Mahmoud Ebrahem. All Rights Reserved </p>
   </footer>
 
   <script src="bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </body>
 
 </html>

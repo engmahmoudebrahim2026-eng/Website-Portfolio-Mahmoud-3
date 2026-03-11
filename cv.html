@@ -2,67 +2,65 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="محمود.png" type="image/x-icon">
-    <meta name="description"
-        content="We aim to provide valuable and useful information about Website Welcome To WE School Class 2/4 where we offer rich and diverse content that meets the needs of  our visitors and helps them better understand the topic">
-    <meta name="outhor" content=" Mahmoud Ebrahim">
-    <meta name="keywords" content="Html,css,JS,Coding Html and css">
-    <title> Mahmoud Ebrahim - My Portfolio</title>
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="محمود.png" type="image/x-icon">
+  <meta name="description"
+    content="We aim to provide valuable and useful information about Website Welcome To WE School Class 2/4 where we offer rich and diverse content that meets the needs of  our visitors and helps them better understand the topic">
+  <meta name="outhor" content=" Mahmoud Ebrahim">
+  <meta name="keywords" content="Html,css,JS,Coding Html and css">
+  <title> Mahmoud Ebrahim - My Portfolio</title>
+    <!-- Boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 </head>
 
 <body onload="animateBars()">
-
-  <nav class="navbar navbar-expand-lg">
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg fade-up">
     <div class="container">
-      <a class="navbar-brand" href="#">🎯Mahmoud🎯</a>
+      <a class="navbar-brand" href="index.html">✨Mahmoud✨</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <!-- Home -->
-          <li class="dropdown">
-            <a class="dropdown-toggle nav-link fs-4 active" id="nav-link " href="index.html"
-              data-bs-toggle="dropdown">Home</a>
+          <div class="dropdown">
+            <a class="dropdown-toggle nav-link fs-4 " data-bs-toggle="dropdown">Home</a>
             <ol class="dropdown-menu text-center">
-              <li class="dropdown-item"><a href="index.html" id="nav-link">Home</a></li>
-              <li class="dropdown-item"><a href="#about" id="nav-link">About</a></li>
-              <li class="dropdown-item"><a href="#skills" id="nav-link">Skills</a></li>
-              <li class="dropdown-item"><a href="#services" id="nav-link">Services</a></li>
-              <li class="dropdown-item"><a href="#Projects" id="nav-link">Projects</a></li>
-              <li class="dropdown-item"><a href="#Contact" id="nav-link">Contact us</a></li>
+              <li><a href="index.html" class="dropdown-item">Home</a></li>
+              <li><a href="#about" class="dropdown-item">About</a></li>
+              <li><a href="#skills" class="dropdown-item">Skills</a></li>
+              <li><a href="#services" class="dropdown-item">Services</a></li>
+              <li><a href="#Projects" class="dropdown-item">Projects</a></li>
+              <li><a href="#Contact" class="dropdown-item">Contact us</a></li>
             </ol>
-          </li>
+          </div>
           <!-- Projects -->
           <li class="dropdown">
-            <a class="dropdown-toggle nav-link fs-4 " id="nav-link " href="Projects.html"
-              data-bs-toggle="dropdown">Projects</a>
+            <a class="dropdown-toggle nav-link fs-4" data-bs-toggle="dropdown">Projects</a>
             <ol class="dropdown-menu text-center">
-              <li class="dropdown-item"><a href="Projects.html" id="nav-link">Projects</a></li>
-              <li class="dropdown-item"><a href="#Contact" id="nav-link">Contact us</a></li>
+              <li><a href="Projects.html" class="dropdown-item">Projects</a></li>
+              <li><a href="#Contact" class="dropdown-item">Contact us</a></li>
             </ol>
           </li>
           <!-- cv -->
           <li class="dropdown">
-            <a class="dropdown-toggle nav-link fs-4 " id="nav-link " href="cv.html"
-              data-bs-toggle="dropdown">cv</a>
+            <a class="dropdown-toggle nav-link fs-4 active" href="cv.html" data-bs-toggle="dropdown">cv</a>
             <ol class="dropdown-menu text-center">
-              <li class="dropdown-item"><a href="cv.html" id="nav-link">CV</a></li>
-              <li class="dropdown-item"><a href="#Contact" id="nav-link">Contact us</a></li>
+              <li><a href="cv.html" class="dropdown-item">CV</a></li>
+              <li><a href="#Contact" class="dropdown-item">Contact us</a></li>
             </ol>
           </li>
           <!-- Contact -->
           <li class="dropdown">
-            <a class="dropdown-toggle nav-link fs-4 " id="nav-link " href="index.html"
-              data-bs-toggle="dropdown">Contact</a>
+            <a class="dropdown-toggle nav-link fs-4" href="contact.html" data-bs-toggle="dropdown">Contact</a>
             <ol class="dropdown-menu text-center">
-              <li class="dropdown-item"><a href="contact.html" id="nav-link">Contact us</a></li>
+              <li><a href="contact.html" class="dropdown-item">Contact us</a></li>
             </ol>
           </li>
         </ul>
@@ -71,79 +69,79 @@
     </div>
   </nav>
 
-    <div class="cv-container mt-5" id="cv">
-        <!-- HEADER -->
-        <div class="header">
-            <img src="محمود.png" alt="Profile Photo" class="profile-img">
-            <div class="info">
-                <h1 class="text-secondary fw-bolder"> Mahmoud Ebrahim</h1>
-                <p>High School Student – Technology Section</p>
-                <p><i class="fa fa-school"></i> WE School, Assiut</p>
-                <p><i class="fa fa-envelope"></i> eng.mahmoud.ebrahim.2026@gmail.com</p>
-                <p><i class="fa fa-phone"></i> +20 1120283294</p>
-            </div>
-        </div>
-
-        <div class="main-content">
-
-            <!-- LEFT PANEL -->
-            <div class="left-panel">
-                <div class="section-title">Skills</div>
-                <ul>
-                    <li><i class="fa fa-check-circle"></i> Web Development Basics (HTML, CSS, JS)</li>
-                    <li><i class="fa fa-check-circle"></i> Problem Solving & Logical Thinking</li>
-                    <li><i class="fa fa-check-circle"></i> Microsoft Office (Word, Excel, PowerPoint)</li>
-                    <li><i class="fa fa-check-circle"></i> Time Management</li>
-                    <li><i class="fa fa-check-circle"></i> Teamwork & Collaboration</li>
-                </ul>
-
-                <div class="section-title">Languages</div>
-                <ul>
-                    <li><i class="fa fa-language"></i> Arabic – Native</li>
-                    <li><i class="fa fa-language"></i> English – Very Good</li>
-                </ul>
-            </div>
-
-            <!-- RIGHT PANEL -->
-            <div class="right-panel">
-                <div class="section-title">Profile</div>
-                <h6 class="fw-bolder">High school student in the technology section with a passion for programming, web
-                    development, and
-                    technology. Eager to develop skills and participate in projects that enhance learning and
-                    creativity.</h6>
-
-                <div class="section-title">Education</div>
-                <h6 class="fw-bolder">High School – Technology Section<br><br><span class="text-uppercase fw-bolder">WE
-                        School,
-                        Assiut</span></h6>
-                <br>
-                <div class="section-title">Experience</div>
-                <ul>
-                    <li class="fw-bolder">Participated in school projects related to technology and programming</li>
-                    <li class="fw-bolder">Developed simple web pages and applications as practice</li>
-                    <li class="fw-bolder">Collaborated with classmates on team projects</li>
-                    <li class="fw-bolder">Attended workshops and tech events</li>
-                </ul>
-
-                <div class="section-title">Achievements & Activities</div>
-                <ul>
-                    <li class="fw-bolder">Member of the school tech club</li>
-                    <li class="fw-bolder">Participated in coding competitions</li>
-                    <li class="fw-bolder">Developed personal mini-projects for learning</li>
-                </ul>
-            </div>
-
-        </div>
+  <div class="cv-container mt-5" id="cv">
+    <!-- HEADER -->
+    <div class="header">
+      <img src="محمود.png" alt="Profile Photo" class="profile-img">
+      <div class="info">
+        <h1 class="text-secondary fw-bolder"> Mahmoud Ebrahim</h1>
+        <p>High School Student – Technology Section</p>
+        <p><i class="fa fa-school"></i> WE School, Assiut</p>
+        <p><i class="fa fa-envelope"></i> eng.mahmoud.ebrahim.2026@gmail.com</p>
+        <p><i class="fa fa-phone"></i> +20 1120283294</p>
+      </div>
     </div>
 
-  <section id="Contact" class="contact-section container">
+    <div class="main-content">
+
+      <!-- LEFT PANEL -->
+      <div class="left-panel">
+        <div class="section-title">Skills</div>
+        <ul>
+          <li><i class="fa fa-check-circle"></i> Web Development Basics (HTML, CSS, JS)</li>
+          <li><i class="fa fa-check-circle"></i> Problem Solving & Logical Thinking</li>
+          <li><i class="fa fa-check-circle"></i> Microsoft Office (Word, Excel, PowerPoint)</li>
+          <li><i class="fa fa-check-circle"></i> Time Management</li>
+          <li><i class="fa fa-check-circle"></i> Teamwork & Collaboration</li>
+        </ul>
+
+        <div class="section-title">Languages</div>
+        <ul>
+          <li><i class="fa fa-language"></i> Arabic – Native</li>
+          <li><i class="fa fa-language"></i> English – Very Good</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="right-panel">
+        <div class="section-title">Profile</div>
+        <h6 class="fw-bolder">High school student in the technology section with a passion for programming, web
+          development, and
+          technology. Eager to develop skills and participate in projects that enhance learning and
+          creativity.</h6>
+
+        <div class="section-title">Education</div>
+        <h6 class="fw-bolder">High School – Technology Section<br><br><span class="text-uppercase fw-bolder">WE
+            School,
+            Assiut</span></h6>
+        <br>
+        <div class="section-title">Experience</div>
+        <ul>
+          <li class="fw-bolder">Participated in school projects related to technology and programming</li>
+          <li class="fw-bolder">Developed simple web pages and applications as practice</li>
+          <li class="fw-bolder">Collaborated with classmates on team projects</li>
+          <li class="fw-bolder">Attended workshops and tech events</li>
+        </ul>
+
+        <div class="section-title">Achievements & Activities</div>
+        <ul>
+          <li class="fw-bolder">Member of the school tech club</li>
+          <li class="fw-bolder">Participated in coding competitions</li>
+          <li class="fw-bolder">Developed personal mini-projects for learning</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <section id="Contact" class="contact-section container fade-up">
     <div class="profile-container">
-      <img src="محمود.png" alt="Mahmoud Ebrahem" class="profile-img">
-      <h1 class="title">👇Contact Me👇</h1>
+      <img src="محمود.png" alt="Mahmoud Ebrahem" class="profile-img fade-up">
+      <h1 class="title fade-up">👇Contact Me👇</h1>
     </div>
-    <form id="contactForm" class="form-container">
+    <form id="contactForm" class="form-container fade-up">
 
-      <div class="form-group">
+      <div class="form-group fade-up">
         <label for="firstName">First Name</label>
         <input type="text" class="form-control" id="firstName" name="firstName" required
           placeholder="Enter your first name">
@@ -151,7 +149,7 @@
         <div class="valid-feedback"></div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group fade-up">
         <label for="lastName">Last Name</label>
         <input type="text" class="form-control" id="lastName" name="lastName" required
           placeholder="Enter your last name">
@@ -159,45 +157,47 @@
         <div class="valid-feedback"></div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group fade-up">
         <label for="phone">Phone</label>
         <input type="tel" class="form-control" id="phone" name="phone" required placeholder="Your phone number">
         <div class="invalid-feedback"></div>
         <div class="valid-feedback"></div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group fade-up">
         <label for="subject">Subject</label>
         <input type="text" class="form-control" id="subject" name="subject" required placeholder="Message subject">
         <div class="invalid-feedback"></div>
         <div class="valid-feedback"></div>
       </div>
 
-      <div class="form-group full">
+      <div class="form-group full fade-up">
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" required placeholder="your.email@example.com">
         <div class="invalid-feedback"></div>
         <div class="valid-feedback"></div>
       </div>
 
-      <div class="form-group full">
+      <div class="form-group full fade-up">
         <label for="message">Message</label>
         <textarea class="form-control" id="message" name="message" rows="6" required
           placeholder="Write your message here..."></textarea>
         <div class="invalid-feedback"></div>
         <div class="valid-feedback"></div>
       </div>
-      <button type="submit" class="submit-btn btn-custom " id="submitBtn">Submit</button>
-      <div id="formMessage" class="form-message"></div>
+      <button type="submit" class="submit-btn btn-custom fade-up" id="submitBtn">Submit</button>
+      <div id="formMessage" class="form-message fade-up"></div>
     </form>
   </section>
 
-    <footer class="text-center p-1" style="background: rgba(2, 8, 23, 0.96);">
-        <p>&copy; Mahmoud Ebrahem. All Rights Reserved </p>
-    </footer>
+  <footer class="text-center p-1" style="background: rgba(2, 8, 23, 0.96);">
+    <p>&copy; Mahmoud Ebrahem. All Rights Reserved </p>
+  </footer>
 
-    <script src="bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+   <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
 </body>
 

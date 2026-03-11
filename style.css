@@ -1,3 +1,11 @@
+:root {
+    --bg-color: #1f243d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef;
+
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,6 +22,7 @@ body {
 
 a {
     text-decoration: none;
+    color: #000;
 }
 
 .navbar {
@@ -43,39 +52,12 @@ a {
     transition: all 0.4s ease;
 }
 
-#nav-link {
-    color: black;
-    font-weight: 600;
-    padding: 0.7rem 1.4rem;
-    position: relative;
-    transition: all 0.4s ease;
-
-}
-
 .nav-link:hover,
 .nav-link.active {
     color: #22d3ee !important;
     transform: translateY(-3px);
     text-shadow: 0 0 18px rgba(34, 211, 238, 0.8);
 }
-
-
-#nav-link::after {
-    content: '';
-    width: 0;
-    height: 3px;
-    bottom: 8px;
-    left: 50%;
-    background: linear-gradient(90deg, #22d3ee, #ff6bcb);
-    transition: all 0.45s ease;
-    transform: translateX(-50%);
-}
-
-#nav-link:hover::after,
-#nav-link.active::after {
-    width: 75%;
-}
-
 
 .dropdown-menu {
     border: none;
@@ -89,20 +71,18 @@ a {
     padding: 10px 15px;
     border-radius: 8px;
     transition: 0.3s;
-}
-
-.dropdown-item:hover {
-    background: #22d3ee;
-    color: #020817;
-}
-
-.dropdown-item {
+    color: #000;
     font-size: 1.2rem;
     font-weight: 700;
     border-radius: 50px;
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+}
+
+.dropdown-item:hover {
+    background: #22d3ee;
+    color: #020817;
 }
 
 .dropdown-item::before {
@@ -114,6 +94,7 @@ a {
     top: 0;
     background: rgba(255, 255, 255, 0.15);
     transition: 0.5s;
+    z-index: 10;
 }
 
 .dropdown-item:hover::before {
@@ -150,6 +131,8 @@ a {
     padding: 15px;
     transition: all 0.5s ease;
     animation: pulseGlow 3s infinite alternate;
+    animation: floatlmage 4s ease-in-out infinite;
+
 }
 
 @keyframes pulseGlow {
@@ -159,6 +142,20 @@ a {
 
     to {
         box-shadow: 0 0 60px rgba(255, 107, 203, 0.4);
+    }
+}
+
+@keyframes floatlmage {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2.4rem);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
 
@@ -283,8 +280,6 @@ h1 span {
 }
 
 /* about */
-
-
 .about-section {
     margin: 0 auto;
     background: rgba(15, 23, 42, 0.7);
@@ -905,4 +900,130 @@ textarea.form-control {
 
 #profile-img:hover {
     transform: scale(0.8);
+}
+
+
+
+
+/* Profile Image with Dashed Animated Border */
+.profile-container {
+    position: relative;
+    margin-top: 20px;
+}
+
+.profile-container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    z-index: 2;
+    position: relative;
+}
+
+/* Stats Numbers */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.stat-item {
+    text-align: left;
+}
+
+.stat-item h3 {
+    font-size: 1.8rem;
+    color: #00ff99;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    color: #f0f0f0;
+}
+
+/* Social Media Buttons */
+.social-buttons a {
+    margin: 5px;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #00ff99, #00ccff);
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.social-buttons a:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+.protfalio-box {
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem var(--bg-color);
+    overflow: hidden;
+    display: flex;
+
+}
+
+.protfalio-box img {
+    width: 100%;
+    transition: .3s ease;
+}
+
+.protfalio-box img:hover {
+    transform: scale(1.1);
+}
+
+.protfalio-box .protfolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 4rem;
+    transform: translateY(100%);
+    transition: .5s ease;
+
+}
+
+.protfalio-box:hover .protfolio-layer {
+    transform: translateY(0);
+}
+
+.protfolio-layer h4 {
+    font-size: 3rem;
+
+}
+
+.protfolio-layer p {
+    font-size: 1.6rem;
+    margin: .3rem 0 1rem;
+}
+
+.protfolio-layer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--text-color);
+    border-radius: 50%;
+
+
+}
+
+.protfolio-layer a i {
+    font-size: 2rem;
+    color: var(--second-bg-color);
+
 }
