@@ -17,13 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <style>
-  .hero {
-    min-height: 100vh;
-    background: linear-gradient(to bottom, rgba(2, 8, 23, 0.70), rgba(2, 8, 23, 0.82), rgba(2, 8, 23, 0.94)),
-      url('img\ \(14\).jpg');
-    background-size: 100%;
-    background-repeat: no-repeat;
-  }
+
 </style>
 
 <body onload="animateBars()">
@@ -78,33 +72,39 @@
   </nav>
 
   <!-- hero -->
-  <section class="hero" id="hero">
-    <div class="content container mt-5">
-      <div class="profile-hex fade-up" id="profile-img">
-        <img src="محمود.png">
-      </div>
-      <h1 class="fade-up">✨Mahmoud <span>Ebrahim</span>✨</h1>
-      <p class="lead fade-up">💥And I'm a <strong class="multiple-text">Frontend Developer & Web Designer</strong>💥</p>
-      <div class="social-buttons d-flex flex-wrap justify-content-center fade-up">
-        <a href="https://github.com/engmahmoudebrahim2026-eng" target="_blank" class="btn-custom"><i
-            class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/mahmoud-ebrahem-1220083b5?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-          target="_blank" class="btn-custom"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/mahmoud190962/?utm_source=qr&r=nametag" target="_blank" class="btn-custom"><i
-            class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/share/1CKDxamzgP/" target="_blank" class="btn-custom"><i
-            class="fab fa-facebook"></i></a>
-        <a href="https://wa.me/201120283294" target="_blank" class="btn-custom"><i class="fab fa-whatsapp"></i></a>
-      </div>
-      <br>
-      <p class="lead fade-up">Hi! I'm Mahmoud Ebrahem, a passionate Frontend Developer with over 3 years of experience
-        building responsive, interactive, and beautiful websites. I specialize in HTML, CSS, JavaScript, Bootstrap,
-        Tailwind, and modern frontend frameworks. My goal is to deliver high-quality solutions that exceed client
-        <br>🔥 expectations.🔥
-      </p>
-      <div class="fade-up">
-        <a href="cv.pdf" download class="btn btn-primary-custom btn-custom">Download CV</a>
-        <a href="#" class="btn btn-outline-custom btn-custom">Portfolio</a>
+  <section class="hero fade-up" id="home">
+    <div class="container hero-content fade-up">
+      <div class="row align-items-center fade-up">
+        <div class="col-lg-5 mb-4 fade-up">
+          <div class="avatar-box fade-up ">
+            <img src="محمود.png">
+          </div>
+        </div>
+        <div class="col-lg-7 fade-up">
+          <h1 class="fw-bold fade-up"><span>Hello, It's Me</span> </h1>
+          <h1 class="fw-bold fade-up">Mahmoud <span> Ebrahim</span></h1>
+          <p class="lead fade-up  text-info">💥And I'm a <strong class="multiple-text">Frontend Developer & Web
+              Designer</strong>💥</p>
+          <p class="fs-5 fade-up">Hi! I'm Mahmoud Ebrahem, a passionate Frontend Developer with over 3 years of
+            experience
+            building responsive, interactive, and beautiful websites. I specialize in HTML, CSS, JavaScript, Bootstrap,
+            Tailwind, and modern frontend frameworks. My goal is to deliver high-quality solutions that exceed client
+            <br>🔥 expectations.🔥
+          </p>
+          <div class="social-buttons  fade-up">
+            <a href="https://github.com/engmahmoudebrahim2026-eng" target="_blank" class="btn-custom"><i
+                class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mahmoud-ebrahem-1220083b5?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              target="_blank" class="btn-custom"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/mahmoud190962/?utm_source=qr&r=nametag" target="_blank"
+              class="btn-custom"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1CKDxamzgP/" target="_blank" class="btn-custom"><i
+                class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/201120283294" target="_blank" class="btn-custom"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <a href="cv.pdf" download class="btn btn-main mt-3 btn btn-custom">Download CV</a>
+
+        </div>
       </div>
     </div>
   </section>
@@ -112,7 +112,7 @@
   <!-- About -->
   <section id="about" class="about-section fade-up">
     <div class="profile-container fade-up">
-      <img src="محمود 2.jpg" alt="Mahmoud Ebrahem" class="profile-img fade-up">
+      <img src="محمود 2.jpg" alt="Mahmoud Ebrahem" class="profile-img fade-up profile-hex ">
       <h1 class="title fade-up">About Me</h1>
       <div class="name fade-up">Mahmoud Ebrahem</div>
       <div class="roles fade-up">
@@ -387,7 +387,7 @@
   <!-- Contact -->
   <section id="Contact" class="contact-section container fade-up">
     <div class="profile-container fade-up">
-      <img src="محمود.png" alt="Mahmoud Ebrahem" class="profile-img fade-up">
+      <img src="محمود.png" alt="Mahmoud Ebrahem" class="profile-img fade-up profile-hex ">
       <h1 class="title fade-up">👇Contact Me👇</h1>
     </div>
     <form id="contactForm" class="form-container fade-up">
