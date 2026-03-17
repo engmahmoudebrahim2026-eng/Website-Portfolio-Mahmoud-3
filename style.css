@@ -45,10 +45,11 @@ body {
 /* AVATAR */
 .avatar-box {
     position: relative;
-    width: 27rem;
-    height: 27rem;
+    width: 260px;
+    height: 260px;
     margin: auto;
 }
+
 
 .avatar-box::before {
     content: '';
@@ -68,8 +69,8 @@ body {
 }
 
 .avatar-box img {
-    width: 25rem;
-    height: 25rem;
+    width: 220px;
+    height: 220px;
     object-fit: cover;
     border-radius: 50%;
     position: absolute;
@@ -211,6 +212,7 @@ a {
     animation: floatlmage 4s ease-in-out infinite;
 
 }
+
 @keyframes floatlmage {
     0% {
         transform: translateY(0);
