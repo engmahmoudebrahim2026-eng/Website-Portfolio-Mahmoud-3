@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en data-theme=dark">
 
 <head>
   <meta charset="UTF-8">
@@ -19,55 +19,129 @@
 </head>
 
 <body onload="animateBars()">
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg fade-up">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">✨Mahmoud✨</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <!-- Home -->
-          <div class="dropdown">
-            <a class="dropdown-toggle nav-link fs-4 " data-bs-toggle="dropdown">Home</a>
-            <ol class="dropdown-menu text-center">
-              <li><a href="index.html" class="dropdown-item">Home</a></li>
-              <li><a href="#about" class="dropdown-item">About</a></li>
-              <li><a href="#skills" class="dropdown-item">Skills</a></li>
-              <li><a href="#services" class="dropdown-item">Services</a></li>
-              <li><a href="#Projects" class="dropdown-item">Projects</a></li>
-              <li><a href="#Contact" class="dropdown-item">Contact us</a></li>
-            </ol>
+  <!--NAVBAR -->
+  <nav class="main-navbar">
+    <div class="container-fluid px-4">
+      <div class="d-flex align-items-center justify-content-between w-100 gap-3">
+
+        <!-- Logo (left) -->
+        <a class="navbar-brand flex-shrink-0" href="#">
+          <div class="logo-mark">M</div>
+        </a>
+
+        <!-- Nav Links (center) -->
+        <div class="nav-links-center flex-grow-1 justify-content-center">
+          <a href="index.html" class="nav-pill ">
+            Home
+          </a>
+          <a href="Projects.html" class="nav-pill">
+            </i> Projects
+          </a>
+          <a href="cv.html" class="nav-pill active">
+            CV
+          </a>
+          <a href="contact.html" class="nav-pill">
+            Contact
+          </a>
+        </div>
+
+        <!-- ===== Search Input with Dropdown ===== -->
+        <div style="position:relative; max-width:300px;">
+          <input type="text" id="smartSearch" class="form-control search-input text-white"
+            placeholder="Search page or section" autocomplete="off">
+          <div id="searchDropdown" style="
+        position:absolute; top:100%; left:0; right:0;
+        background:#020817; border:1px solid rgba(34,211,238,0.22);
+        border-radius:12px; display:none; max-height:300px; overflow-y:auto; z-index:2000;
+        ">
           </div>
-          <!-- Projects -->
-          <li class="dropdown">
-            <a class="dropdown-toggle nav-link fs-4" data-bs-toggle="dropdown">Projects</a>
-            <ol class="dropdown-menu text-center">
-              <li><a href="Projects.html" class="dropdown-item">Projects</a></li>
-              <li><a href="#Contact" class="dropdown-item">Contact us</a></li>
-            </ol>
-          </li>
-          <!-- cv -->
-          <li class="dropdown">
-            <a class="dropdown-toggle nav-link fs-4 active" href="cv.html" data-bs-toggle="dropdown">cv</a>
-            <ol class="dropdown-menu text-center">
-              <li><a href="cv.html" class="dropdown-item">CV</a></li>
-              <li><a href="#Contact" class="dropdown-item">Contact us</a></li>
-            </ol>
-          </li>
-          <!-- Contact -->
-          <li class="dropdown">
-            <a class="dropdown-toggle nav-link fs-4" href="contact.html" data-bs-toggle="dropdown">Contact</a>
-            <ol class="dropdown-menu text-center">
-              <li><a href="contact.html" class="dropdown-item">Contact us</a></li>
-            </ol>
-          </li>
-        </ul>
+        </div>
+
+        <!-- Right Controls -->
+        <div class="right-controls">
+          <!-- Dark Toggle in Offcanvas -->
+          <div class="dark-toggle" id="darkToggleMobile" title="تبديل الوضع">
+            <span class="dark-toggle-icon sun">☀️</span>
+            <span class="dark-toggle-icon moon">🌙</span>
+          </div>
+          <a href="#" class="icon-btn" title="Resources">
+            <i class="bi bi-grid-3x3-gap-fill"></i>
+          </a>
+          <a href="#" class="icon-btn" title="Account">
+            <i class="bi bi-person-circle"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Toggler -->
+        <button class="offcanvas-toggler" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+          <i class="bi bi-list"></i>
+        </button>
+
       </div>
     </div>
-    </div>
   </nav>
+
+  <!--OFFCANVAS (Mobile — slides from right) -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+      <div class="d-flex align-items-center gap-2">
+        <div class="logo-mark" style="width:32px;height:32px;font-size:0.9rem;">J</div>
+        <span class="offcanvas-title">JokesHub</span>
+      </div>
+      <button class="btn-close-offcanvas" data-bs-dismiss="offcanvas">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <div class="offcanvas-body">
+      <!-- ===== Search Input with Dropdown ===== -->
+      <div style="position:relative; max-width:300px;">
+        <input type="text" id="smartSearch" class="form-control search-input text-white"
+          placeholder="Search page or section" autocomplete="off">
+        <div id="searchDropdown" style="
+        position:absolute; top:100%; left:0; right:0;
+        background:#020817; border:1px solid rgba(34,211,238,0.22);
+        border-radius:12px; display:none; max-height:300px; overflow-y:auto; z-index:2000;
+        ">
+        </div>
+      </div>
+
+      <!-- Nav Links -->
+      <a href="index.html" class="nav-pill ">
+        Home
+      </a>
+      <a href="Projects.html" class="nav-pill">
+        </i> Projects
+      </a>
+      <a href="cv.html" class="nav-pill active">
+        CV
+      </a>
+      <a href="contact.html" class="nav-pill">
+        Contact
+      </a>
+
+      <div class="oc-divider"></div>
+
+      <a href="#" class="oc-nav-link">
+        <i class="bi bi-grid-3x3-gap-fill"></i> Resources
+      </a>
+      <a href="#" class="oc-nav-link">
+        <i class="bi bi-person-circle"></i> My Account
+      </a>
+
+      <div class="oc-divider"></div>
+
+      <!-- Dark Toggle -->
+      <div class="oc-actions">
+        <span>Dark Mode</span>
+        <div class="dark-toggle" id="darkToggleMobile" title="Toggle theme">
+          <span class="dark-toggle-icon sun">☀️</span>
+          <span class="dark-toggle-icon moon">🌙</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <div class="cv-container mt-5" id="cv">
     <!-- HEADER -->
@@ -134,7 +208,7 @@
     </div>
   </div>
 
-  <section id="Contact" class="contact-section container fade-up">
+  <section id="Contact" class="contact-section container fade-up" style="margin-top: 10rem;">
     <div class="profile-container">
       <img src="محمود.png" alt="Mahmoud Ebrahem" class="profile-img fade-up profile-hex">
       <h1 class="title fade-up">👇Contact Me👇</h1>

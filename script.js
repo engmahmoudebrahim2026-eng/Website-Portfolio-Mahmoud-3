@@ -81,3 +81,90 @@ function showMessage(text, type) {
 }
 
 
+
+
+const searchMap = [
+    { name: 'Home', link: '/index.html#home' },
+    { name: 'About', link: '/index.html#about' },
+    { name: 'Skills', link: '/index.html#skills' },
+    { name: 'Service', link: '/index.html#service' },
+    { name: 'Project', link: '/index.html#project' },
+    { name: 'Content', link: '/index.html#content' },
+
+    { name: 'Projects', link: '/Projects.html' },
+    { name: 'My Project', link: '/Projects.html#projects' },
+    { name: 'Content', link: '/Projects.html#Contact' },
+
+    { name: 'CV', link: '/cv.html' },
+    { name: 'CV', link: '/cv.html#cv' },
+    { name: 'CV Content', link: '/cv.html#Contact' },
+
+    { name: 'Contact', link: '/contant.html' }
+];
+
+const input = document.getElementById('smartSearch');
+const dropdown = document.getElementById('searchDropdown');
+
+input.addEventListener('input', function () {
+    const query = this.value.toLowerCase().trim();
+    dropdown.innerHTML = '';
+    if (query === '') {
+        dropdown.style.display = 'none';
+        return;
+    }
+
+    const results = searchMap.filter(item => item.name.toLowerCase().includes(query));
+    if (results.length === 0) {
+        dropdown.innerHTML = `<div style="padding:10px;color:white;text-align:center;">No results found</div>`;
+    } else {
+        results.forEach(item => {
+            const div = document.createElement('div');
+            div.textContent = item.name;
+            div.style.padding = '10px';
+            div.style.cursor = 'pointer';
+            div.style.color = 'white';
+            div.addEventListener('mouseenter', () => { div.style.background = 'rgba(34,211,238,0.08)'; });
+            div.addEventListener('mouseleave', () => { div.style.background = 'transparent'; });
+            div.addEventListener('click', () => { window.location.href = item.link; });
+            dropdown.appendChild(div);
+        });
+    }
+    dropdown.style.display = 'block';
+});
+
+// اختفاء الـ dropdown لما تضغط خارجها
+document.addEventListener('click', function (e) {
+    if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+    }
+});
+
+// إمكانية الضغط Enter على أول نتيجة
+input.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        const first = dropdown.querySelector('div');
+        if (first) window.location.href = searchMap.find(item => item.name === first.textContent).link;
+    }
+});
+
+
+// ══════════════════════════════
+//  DARK MODE
+const htmlEl = document.documentElement;
+
+// تحميل الوضع المحفوظ
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  htmlEl.setAttribute('data-theme', savedTheme);
+}
+
+// زرار التبديل
+document.querySelectorAll('#darkToggle, #darkToggleMobile').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+
+    htmlEl.setAttribute('data-theme', newTheme);
+    localStorage.setItem("theme", newTheme);
+  });
+});
