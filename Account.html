@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive My Account</title>
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #1f243d;
+      --second-bg-color: #323946;
+      --text-color: #fff;
+      --main-color: #0ef;
+      --main: #0ff;
+      --sec: #ff00ff;
+      --dark: #000014;
+
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1e88e5, #42a5f5);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at top right, var(--sec), transparent 40%),
+        radial-gradient(circle at bottom left, var(--main), transparent 40%);
+    }
+
+    /* Auth Card */
+    .auth-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .auth-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .auth-card h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #1e88e5;
+      font-weight: 700;
+    }
+
+    .toggle-link {
+      color: #1e88e5;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* Error Highlight */
+    input.error {
+      border-color: red !important;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      display: none;
+      margin-top: 3px;
+    }
+
+    /* Success/Error Message */
+    #formMessage {
+      margin-top: 10px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95em;
+    }
+
+    /* Password Toggle Button */
+    .password-toggle {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #1e88e5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .password-toggle:hover {
+      background: #1565c0;
+    }
+
+    /* Responsive */
+    @media(max-width:900px) {
+      .account-container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body id="body">
+
+  <div class="auth-card" id="authCard">
+    <h2 id="formTitle">Sign Up</h2>
+
+    <form id="signupForm" style="position:relative;">
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="signupName" placeholder="Enter your name">
+        <div class="error-message">Name is required</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email">
+        <div class="error-message">Valid email is required</div>
+      </div>
+      <div class="mb-3 position-relative">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" id="signupPassword" placeholder="Enter password">
+        <div class="password-toggle" onclick="togglePassword('signupPassword',this)">👁️</div>
+        <div class="error-message">Password required</div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+      <div id="formMessage"></div>
+      <p class="text-center mt-3">Already have an account? <span class="toggle-link" onclick="toggleForm()">Login</span>
+      </p>
+    </form>
+
+    <form id="loginForm" style="display:none; position:relative;">
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email">
+        <div class="error-message">Email required</div>
+      </div>
+      <div class="mb-3 position-relative">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" id="loginPassword" placeholder="Enter password">
+        <div class="password-toggle" onclick="togglePassword('loginPassword',this)">👁️</div>
+        <div class="error-message">Password required</div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+      <div id="formMessage"></div>
+      <p class="text-center mt-3">Don't have an account? <span class="toggle-link" onclick="toggleForm()">Sign Up</span>
+      </p>
+    </form>
+  </div>
+
+  <script>
+    const signupForm = document.getElementById('signupForm');
+    const loginForm = document.getElementById('loginForm');
+    const formTitle = document.getElementById('formTitle');
+
+    // Toggle forms
+    function toggleForm() {
+      document.querySelectorAll('#formMessage').forEach(msg => msg.textContent = '');
+      if (signupForm.style.display === 'none') {
+        signupForm.style.display = 'block';
+        loginForm.style.display = 'none';
+        formTitle.textContent = 'Sign Up';
+      } else {
+        signupForm.style.display = 'none';
+        loginForm.style.display = 'block';
+        formTitle.textContent = 'Login';
+      }
+    }
+
+    // Toggle password visibility
+    function togglePassword(inputId, el) {
+      const input = document.getElementById(inputId);
+      if (input.type === 'password') { input.type = 'text'; el.textContent = '🙈'; }
+      else { input.type = 'password'; el.textContent = '👁️'; }
+    }
+
+    // Validate input
+    function validateInput(input) {
+      const errorDiv = input.nextElementSibling.nextElementSibling || input.nextElementSibling;
+      if (!input.value.trim()) { input.classList.add('error'); errorDiv.style.display = 'block'; return false; }
+      input.classList.remove('error'); errorDiv.style.display = 'none'; return true;
+    }
+
+    // Sign Up
+    signupForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('signupName');
+      const email = document.getElementById('signupEmail');
+      const password = document.getElementById('signupPassword');
+      const validName = validateInput(name);
+      const validEmail = validateInput(email);
+      const validPassword = validateInput(password);
+      const msgDiv = document.querySelector('#signupForm #formMessage');
+      if (validName && validEmail && validPassword) {
+        msgDiv.style.color = 'green';
+        msgDiv.textContent = '✅ تم عمل الحساب بنجاح!';
+        name.value = ''; email.value = ''; password.value = '';
+      } else {
+        msgDiv.style.color = 'red';
+        msgDiv.textContent = '❌ لم يتم ارسال البيانات، يرجى إعادة المحاولة.';
+      }
+    });
+
+    // Login
+    loginForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail');
+      const password = document.getElementById('loginPassword');
+      const validEmail = validateInput(email);
+      const validPassword = validateInput(password);
+      const msgDiv = document.querySelector('#loginForm #formMessage');
+      if (validEmail && validPassword) {
+        msgDiv.style.color = 'green';
+        msgDiv.textContent = '✅ تم تسجيل الدخول بنجاح!';
+        email.value = ''; password.value = '';
+      } else {
+        msgDiv.style.color = 'red';
+        msgDiv.textContent = '❌ لم يتم ارسال البيانات، يرجى إعادة المحاولة.';
+      }
+    });
+  </script>
+  <script src="bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

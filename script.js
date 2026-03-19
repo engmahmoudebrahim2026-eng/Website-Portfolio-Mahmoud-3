@@ -168,3 +168,4 @@ document.querySelectorAll('#darkToggle, #darkToggleMobile').forEach(btn => {
     localStorage.setItem("theme", newTheme);
   });
 });
+
