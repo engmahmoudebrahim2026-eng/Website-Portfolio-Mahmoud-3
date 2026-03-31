@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="محمود.png" type="image/x-icon">
+  <meta name="description"
+    content="We aim to provide valuable and useful information about Website Portfolio Presentation where we offer rich and diverse content that meets the needs of  our visitors and helps them better understand the topic">
+  <meta name="outhor" content=" Mahmoud Ebrahim">
+  <meta name="keywords" content="Html,css,JS,Coding Html and css">
+  <title>Mahmoud Ebrahim – Portfolio Presentation</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Orbitron:wght@700;900&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --gold: #0ff;
+      --gold2: #ff00ff;
+      --dark: #060912;
+      --panel: #0b1220;
+      --glass: rgba(255, 215, 0, 0.05);
+      --border: rgba(255, 215, 0, 0.2);
+      --white: #f0f4ff;
+    }
+
+    body {
+      background: var(--dark);
+      font-family: 'Cairo', sans-serif;
+      color: var(--white);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Stars */
+    #bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse at 15% 40%, rgba(255, 215, 0, 0.06) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 20%, rgba(255, 170, 0, 0.04) 0%, transparent 55%),
+        var(--dark);
+    }
+
+    #bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 8% 12%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 22% 38%, rgba(255, 215, 0, 0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 47% 8%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 68% 55%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 82% 28%, rgba(255, 215, 0, 0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 38% 78%, rgba(255, 255, 255, 0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 58% 68%, rgba(255, 215, 0, 0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 13% 72%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 91% 82%, rgba(255, 255, 255, 0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 33% 22%, rgba(255, 170, 0, 0.4) 0%, transparent 100%);
+    }
+
+    /* Player */
+    #player {
+      position: relative;
+      z-index: 10;
+      width: min(920px, 98vw);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 0 50px rgba(255, 215, 0, 0.1), 0 0 100px rgba(255, 215, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top bar */
+    #topbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 18px;
+      background: rgba(0, 0, 0, 0.35);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot-r {
+      background: #ff5f57;
+    }
+
+    .dot-y {
+      background: #ffbd2e;
+    }
+
+    .dot-g {
+      background: #28ca41;
+    }
+
+    #topbar-title {
+      flex: 1;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      color: var(--gold);
+      opacity: 0.85;
+    }
+
+    #scene-counter {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.35);
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Stage */
+    #stage {
+      position: relative;
+      height: clamp(340px, 52vh, 470px);
+      overflow: hidden;
+    }
+
+    #stage::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.025) 2px, rgba(0, 0, 0, 0.025) 4px);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .scene {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 36px;
+      opacity: 0;
+      transform: translateY(28px) scale(0.97);
+      transition: none;
+      pointer-events: none;
+    }
+
+    .scene.active {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.65s ease, transform 0.65s ease;
+      pointer-events: auto;
+    }
+
+    .scene.exit {
+      opacity: 0;
+      transform: translateY(-28px) scale(0.97);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    /* Common */
+    .s-tag {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'Orbitron', sans-serif;
+      opacity: 0.7;
+      margin-bottom: 10px;
+    }
+
+    .s-title {
+      font-size: clamp(20px, 3.8vw, 38px);
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    .dim {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .deco {
+      width: 44px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      border-radius: 2px;
+      margin: 0 auto 14px;
+    }
+
+    .card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 24px;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    /* ── SCENE 1 – Title ── */
+    #s1 .crown {
+      font-size: 48px;
+      margin-bottom: 14px;
+      filter: drop-shadow(0 0 16px rgba(255, 215, 0, 0.6));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-8px)
+      }
+    }
+
+    #s1 .name {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    #s1 .role {
+      font-size: clamp(11px, 1.8vw, 15px);
+      color: rgba(255, 255, 255, 0.6);
+      margin: 8px 0 4px;
+      letter-spacing: 1px;
+    }
+
+    #s1 .meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    #s1 .badge {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 11px;
+      color: var(--gold);
+    }
+
+    /* ── SCENE 2 – Overview ── */
+    .overview-list {
+      list-style: none;
+      width: 100%;
+      max-width: 620px;
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .overview-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: clamp(12px, 1.7vw, 14px);
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+    }
+
+    .overview-list li .bullet {
+      color: var(--gold);
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── SCENE 3 – Design Process ── */
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .step {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #000;
+      font-weight: 900;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* ── SCENE 4 – Tech Stack ── */
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 16px;
+      max-width: 600px;
+    }
+
+    .tech-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .tech-pill:hover {
+      border-color: var(--gold);
+      box-shadow: 0 0 16px rgba(255, 215, 0, 0.2);
+    }
+
+    .tech-pill .ti {
+      font-size: 22px;
+    }
+
+    /* ── SCENE 5 – Key Features ── */
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 14px;
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .feat {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .feat .fi {
+      font-size: 18px;
+    }
+
+    /* ── SCENE 6 – Challenges ── */
+    .challenges {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-top: 12px;
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .ch-row {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 16px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ch-prob {
+      font-size: 12px;
+      color: #ff8080;
+    }
+
+    .ch-arrow {
+      font-size: 16px;
+      color: var(--gold);
+    }
+
+    .ch-sol {
+      font-size: 12px;
+      color: #80ffb0;
+      text-align: right;
+    }
+
+    /* ── SCENE 7 – Live Demo ── */
+    .demo-box {
+      width: 100%;
+      max-width: 520px;
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .demo-row {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+
+    .demo-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 6px;
+    }
+
+    .demo-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.85);
+      word-break: break-all;
+    }
+
+    .demo-link a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .demo-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── SCENE 8 – Future ── */
+    .future-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+      width: 100%;
+      max-width: 560px;
+    }
+
+    .future-item {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .future-item .fi2 {
+      font-size: 20px;
+    }
+
+    /* ── SCENE 9 – Thank You ── */
+    #s9 .ty-circle {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      margin-bottom: 16px;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+      animation: ty-glow 2.5s ease-in-out infinite;
+    }
+
+    @keyframes ty-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.4)
+      }
+
+      50% {
+        box-shadow: 0 0 70px rgba(255, 215, 0, 0.7), 0 0 120px rgba(255, 215, 0, 0.2)
+      }
+    }
+
+    #s9 .ty-big {
+      font-size: clamp(28px, 5vw, 50px);
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    #s9 .ty-sub {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 6px;
+    }
+
+    #s9 .ty-tags {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #s9 .ty-tag {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: 11px;
+      color: var(--gold);
+    }
+
+    /* Controls */
+    #controls {
+      padding: 12px 20px;
+      background: rgba(0, 0, 0, 0.28);
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #progress-wrap {
+      position: relative;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    #progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      transition: width 0.1s linear;
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+    }
+
+    #scene-dots {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1px;
+    }
+
+    .sdot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: -2px;
+    }
+
+    .sdot.passed {
+      background: var(--gold);
+      box-shadow: 0 0 6px var(--gold);
+    }
+
+    #ctrl-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ctrl-btn {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .ctrl-btn:hover {
+      background: rgba(255, 215, 0, 0.12);
+      border-color: var(--gold);
+    }
+
+    #play-btn {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      border: none;
+      border-radius: 50%;
+      color: #000;
+      font-size: 17px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 18px rgba(255, 215, 0, 0.35);
+      transition: all 0.2s;
+    }
+
+    #play-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+    }
+
+    #time-display {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    #scene-label {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.45);
+      flex: 1;
+      text-align: right;
+    }
+
+    #speed-btn {
+      font-size: 10px;
+      font-family: 'Orbitron', sans-serif;
+      width: auto;
+      padding: 0 12px;
+    }
+
+    /* Narration */
+    #narration {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      background: rgba(0, 0, 0, 0.18);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    #narrator-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+      animation: npulse 2s ease-in-out infinite;
+    }
+
+    @keyframes npulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.55
+      }
+    }
+
+    #narration-text {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.5;
+      transition: opacity 0.4s;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0
+      }
+    }
+
+    .blink {
+      animation: blink 1s step-end infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="bg"></div>
+
+  <div id="player">
+
+    <div id="topbar">
+      <div class="dot dot-r"></div>
+      <div class="dot dot-y"></div>
+      <div class="dot dot-g"></div>
+      <div id="topbar-title">🎓 MAHMOUD EBRAHIM — PORTFOLIO PRESENTATION 2026</div>
+      <div id="scene-counter">1 / 9</div>
+    </div>
+
+    <div id="stage">
+
+      <!-- S1: Title Slide -->
+      <div class="scene active" id="s1">
+        <div class="crown">👑</div>
+        <div class="name">Mahmoud Ebrahim</div>
+        <div class="role">Frontend Developer &nbsp;|&nbsp; Web Designer &nbsp;|&nbsp; Graphic Designer</div>
+        <div class="deco"></div>
+        <div style="font-size:clamp(13px,2vw,16px);color:rgba(255,255,255,0.55);text-align:center;">Portfolio Website
+          Project</div>
+        <div class="meta">
+          <span class="badge">🏫 WE School – Technology Section</span>
+          <span class="badge">📅 2026</span>
+        </div>
+      </div>
+
+      <!-- S2: Project Overview -->
+      <div class="scene" id="s2">
+        <div class="s-tag">🧩 Scene 02</div>
+        <div class="s-title">Project <span class="gold">Overview</span></div>
+        <div class="deco"></div>
+        <ul class="overview-list">
+          <li><span class="bullet">▸</span>This project is a <strong>multi-page personal portfolio website</strong>.
+          </li>
+          <li><span class="bullet">▸</span>The goal is to <strong>showcase frontend development skills</strong> and
+            design abilities.</li>
+          <li><span class="bullet">▸</span>The website is <strong>fully responsive</strong> and includes interactive
+            features using JavaScript.</li>
+        </ul>
+      </div>
+
+      <!-- S3: Design Process -->
+      <div class="scene" id="s3">
+        <div class="s-tag">🎨 Scene 03</div>
+        <div class="s-title">Design <span class="gold">Process</span></div>
+        <div class="deco"></div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Created <strong>wireframes</strong> before starting development</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Chose a <strong>modern dark</strong> color palette</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">Used <strong>clean & readable</strong> typography throughout</div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-text">Focused on <strong>UI/UX</strong> user experience principles</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S4: Tech Stack -->
+      <div class="scene" id="s4">
+        <div class="s-tag">⚙️ Scene 04</div>
+        <div class="s-title">Technology <span class="gold">Stack</span></div>
+        <div class="deco"></div>
+        <div class="tech-grid">
+          <div class="tech-pill"><span class="ti">🟧</span> HTML5</div>
+          <div class="tech-pill"><span class="ti">🟦</span> CSS3</div>
+          <div class="tech-pill"><span class="ti">🟨</span> JavaScript</div>
+          <div class="tech-pill"><span class="ti">🅱️</span> Bootstrap</div>
+          <div class="tech-pill"><span class="ti">🌬️</span> Tailwind CSS</div>
+          <div class="tech-pill"><span class="ti">⚛️</span> React <span
+              style="font-size:10px;opacity:0.5">(Optional)</span></div>
+        </div>
+      </div>
+
+      <!-- S5: Key Features -->
+      <div class="scene" id="s5">
+        <div class="s-tag">🚀 Scene 05</div>
+        <div class="s-title">Key <span class="gold">Features</span></div>
+        <div class="deco"></div>
+        <div class="features">
+          <div class="feat"><span class="fi">📱</span> Responsive Navigation Bar</div>
+          <div class="feat"><span class="fi">🖥️</span> Mobile, Tablet & Desktop Support</div>
+          <div class="feat"><span class="fi">🌙</span> Dark / Light Mode</div>
+          <div class="feat"><span class="fi">☰</span> Mobile Menu Toggle</div>
+          <div class="feat" style="grid-column:span 2"><span class="fi">⚡</span> Interactive UI using JavaScript</div>
+        </div>
+      </div>
+
+      <!-- S6: Challenges & Solutions -->
+      <div class="scene" id="s6">
+        <div class="s-tag">⚠️ Scene 06</div>
+        <div class="s-title">Challenges <span class="gold">&amp; Solutions</span></div>
+        <div class="deco"></div>
+        <div class="challenges">
+          <div class="ch-row">
+            <div class="ch-prob">⚠️ Making the website responsive</div>
+            <div class="ch-arrow">→</div>
+            <div class="ch-sol">Used Bootstrap Grid system ✅</div>
+          </div>
+          <div class="ch-row">
+            <div class="ch-prob">⚠️ Adding interactivity</div>
+            <div class="ch-arrow">→</div>
+            <div class="ch-sol">Used JavaScript features ✅</div>
+          </div>
+          <div class="ch-row">
+            <div class="ch-prob">⚠️ Deploying the website</div>
+            <div class="ch-arrow">→</div>
+            <div class="ch-sol">Used GitHub Pages ✅</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S7: Live Demo -->
+      <div class="scene" id="s7">
+        <div class="s-tag">🔗 Scene 07</div>
+        <div class="s-title">Live <span class="gold">Demo</span></div>
+        <div class="deco"></div>
+        <div class="demo-box">
+          <div class="demo-row">
+            <div class="demo-label">🌐 Live Website</div>
+            <div class="demo-link"><a href="https://engmahmoudebrahim2026-eng.github.io/Website-Portfolio-Mahmoud-3/"
+                target="_blank">engmahmoudebrahim2026-eng.github.io/Website-Portfolio-Mahmoud-3/</a></div>
+          </div>
+          <div class="demo-row">
+            <div class="demo-label">🐙 GitHub Repository</div>
+            <div class="demo-link" style="color:rgba(255,255,255,0.4);font-style:italic;">Add your GitHub repo link
+              here<span class="blink">|</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S8: Future Improvements -->
+      <div class="scene" id="s8">
+        <div class="s-tag">🔮 Scene 08</div>
+        <div class="s-title">Future <span class="gold">Improvements</span></div>
+        <div class="deco"></div>
+        <div class="future-list">
+          <div class="future-item"><span class="fi2">📁</span> Add more projects to the portfolio</div>
+          <div class="future-item"><span class="fi2">✨</span> Improve animations and transitions</div>
+          <div class="future-item"><span class="fi2">⚛️</span> Use React for advanced frontend features</div>
+          <div class="future-item"><span class="fi2">🖥️</span> Connect to a backend (Node.js / PHP)</div>
+        </div>
+      </div>
+
+      <!-- S9: Thank You -->
+      <div class="scene" id="s9">
+        <div class="ty-circle">🙌</div>
+        <div class="ty-big">Thank You!</div>
+        <div class="ty-sub">Thank you for your time</div>
+        <div class="deco" style="margin-top:14px"></div>
+        <div style="font-size:clamp(18px,3vw,26px);font-weight:900;color:var(--gold)">Mahmoud Ebrahim</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px">Frontend Developer</div>
+        <div class="ty-tags">
+          <span class="ty-tag">💻 Web Dev</span>
+          <span class="ty-tag">🎨 Design</span>
+          <span class="ty-tag">🚀 2026</span>
+          <span class="ty-tag">📍 WE School</span>
+        </div>
+      </div>
+
+    </div><!-- /stage -->
+
+    <div id="controls">
+      <div id="progress-wrap">
+        <div id="progress-fill"></div>
+        <div id="scene-dots"></div>
+      </div>
+      <div id="ctrl-row">
+        <button class="ctrl-btn" id="prev-btn">⏮</button>
+        <button id="play-btn">⏸</button>
+        <button class="ctrl-btn" id="next-btn">⏭</button>
+        <div id="scene-label">Playing...</div>
+        <div id="time-display">0:00 / 1:21</div>
+        <button class="ctrl-btn" id="speed-btn">1x</button>
+      </div>
+    </div>
+
+    <div id="narration">
+      <div id="narrator-icon">🎙</div>
+      <div id="narration-text">Welcome to the portfolio presentation of Mahmoud Ebrahim — Frontend Developer & Web
+        Designer from WE School, 2026.</div>
+    </div>
+
+  </div>
+
+  <script>
+    const SCENES = [
+      { label: "Title Slide", duration: 8, narration: "Welcome to Mahmoud Ebrahim's portfolio presentation — a frontend developer and graphic designer from WE School, Technology Section, 2026." },
+      { label: "Project Overview", duration: 9, narration: "This project is a multi-page personal portfolio website built to showcase frontend skills with full responsiveness and JavaScript interactivity." },
+      { label: "Design Process", duration: 9, narration: "The design started with wireframes, followed by choosing a modern dark theme, clean typography, and a strong focus on UI/UX principles." },
+      { label: "Technology Stack", duration: 9, narration: "The tech stack includes HTML5, CSS3, JavaScript, Bootstrap, Tailwind CSS, and optionally React — all modern frontend technologies." },
+      { label: "Key Features", duration: 9, narration: "Key features include a responsive navbar, full mobile support, dark/light mode toggle, mobile menu, and interactive JavaScript components." },
+      { label: "Challenges & Solutions", duration: 9, narration: "Three main challenges were overcome: responsiveness solved with Bootstrap Grid, interactivity with JavaScript, and deployment via GitHub Pages." },
+      { label: "Live Demo & Links", duration: 8, narration: "The live website is hosted on GitHub Pages. You can visit it now or check the GitHub repository for the full source code." },
+      { label: "Future Improvements", duration: 8, narration: "Future plans include adding more projects, improving animations, migrating to React, and eventually connecting to a backend server." },
+      { label: "Thank You", duration: 6, narration: "Thank you for watching! Mahmoud Ebrahim — Frontend Developer, ready to build amazing web experiences. 🙌" },
+    ];
+
+    const TOTAL = SCENES.reduce((a, s) => a + s.duration, 0);
+    let cur = 0, elapsed = 0, sceneElapsed = 0, playing = true, speed = 1, ticker = null;
+
+    const playBtn = document.getElementById('play-btn');
+    const fill = document.getElementById('progress-fill');
+    const timeDis = document.getElementById('time-display');
+    const sLabel = document.getElementById('scene-label');
+    const sCtr = document.getElementById('scene-counter');
+    const narTxt = document.getElementById('narration-text');
+    const dotsWrap = document.getElementById('scene-dots');
+
+    SCENES.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'sdot';
+      d.onclick = () => jumpTo(i);
+      dotsWrap.appendChild(d);
+    });
+
+    function fmt(s) { const m = Math.floor(s / 60), sec = Math.floor(s % 60); return `${m}:${sec.toString().padStart(2, '0')}`; }
+
+    function updateUI() {
+      fill.style.width = (elapsed / TOTAL * 100) + '%';
+      timeDis.textContent = fmt(elapsed) + ' / ' + fmt(TOTAL);
+      sLabel.textContent = SCENES[cur].label;
+      sCtr.textContent = (cur + 1) + ' / ' + SCENES.length;
+      document.querySelectorAll('.sdot').forEach((d, i) => d.classList.toggle('passed', i <= cur));
+    }
+
+    function activate(idx) {
+      const scenes = document.querySelectorAll('.scene');
+      scenes[cur].classList.add('exit'); scenes[cur].classList.remove('active');
+      setTimeout(() => scenes[cur].classList.remove('exit'), 600);
+      cur = Math.max(0, Math.min(idx, SCENES.length - 1));
+      sceneElapsed = 0;
+      narTxt.style.opacity = '0';
+      setTimeout(() => { narTxt.textContent = SCENES[cur].narration; narTxt.style.opacity = '1'; }, 300);
+      scenes[cur].classList.add('active');
+      updateUI();
+    }
+
+    function jumpTo(idx) {
+      let e = 0; for (let i = 0; i < idx; i++) e += SCENES[i].duration;
+      elapsed = e; activate(idx);
+    }
+
+    function tick() {
+      if (!playing) return;
+      elapsed += 0.1 * speed; sceneElapsed += 0.1 * speed;
+      if (sceneElapsed >= SCENES[cur].duration) {
+        if (cur < SCENES.length - 1) activate(cur + 1);
+        else { elapsed = 0; sceneElapsed = 0; activate(0); }
+      }
+      updateUI();
+    }
+
+    function startTicker() { if (ticker) clearInterval(ticker); ticker = setInterval(tick, 100); }
+
+    playBtn.onclick = () => { playing = !playing; playBtn.textContent = playing ? '⏸' : '▶'; if (playing) startTicker(); };
+    document.getElementById('prev-btn').onclick = () => jumpTo(Math.max(0, cur - 1));
+    document.getElementById('next-btn').onclick = () => jumpTo(Math.min(SCENES.length - 1, cur + 1));
+
+    document.getElementById('speed-btn').addEventListener('click', function () {
+      const sp = [1, 1.5, 2, 0.5], lb = ['1x', '1.5x', '2x', '0.5x'], i = sp.indexOf(speed);
+      speed = sp[(i + 1) % sp.length]; this.textContent = lb[(i + 1) % sp.length];
+    });
+
+    document.getElementById('progress-wrap').addEventListener('click', function (e) {
+      const pct = (e.clientX - this.getBoundingClientRect().left) / this.getBoundingClientRect().width;
+      elapsed = pct * TOTAL; let acc = 0;
+      for (let i = 0; i < SCENES.length; i++) { acc += SCENES[i].duration; if (elapsed <= acc) { activate(i); break; } }
+    });
+
+    narTxt.textContent = SCENES[0].narration;
+    updateUI(); startTicker();
+  </script>
+</body>
+
+</html>

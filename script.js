@@ -169,3 +169,13 @@ document.querySelectorAll('#darkToggle, #darkToggleMobile').forEach(btn => {
   });
 });
 
+  // Back to Top
+  const backTop = document.getElementById('backToTop');
+  if (backTop) {
+    window.addEventListener('scroll', function() {
+      backTop.classList.toggle('show', window.scrollY > 300);
+    });
+    backTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
