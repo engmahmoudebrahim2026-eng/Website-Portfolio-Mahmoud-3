@@ -23,16 +23,6 @@
       padding: 0;
     }
 
-    body::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at top right, var(--sec), transparent 40%),
-        radial-gradient(circle at bottom left, var(--main), transparent 40%);
-    }
-
     .container {
       max-width: 1200px;
       padding: 30px 20px;
@@ -124,10 +114,37 @@
         font-size: 1.8rem;
       }
     }
+
+        /* ─── CURSOR ─── */
+    .cursor {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: gold;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s;
+      mix-blend-mode: difference
+    }
+
+    .cursor-ring {
+      position: fixed;
+      width: 32px;
+      height: 32px;
+      border: 1px solid #333;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transition: all 0.15s ease
+    }
   </style>
 </head>
 
 <body>
+    <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
   <div class="container">
     <h1>My Resources</h1>
     <div class="row">
@@ -169,6 +186,23 @@
       </div>
     </div>
   </div>
+    <script>
+    // ══════════════════════════════
+    // CURSOR
+    // ══════════════════════════════
+    const cursor = document.getElementById('cursor');
+    const cursorRing = document.getElementById('cursor-ring');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX - 4 + 'px';
+      cursor.style.top = e.clientY - 4 + 'px';
+      cursorRing.style.left = e.clientX - 16 + 'px';
+      cursorRing.style.top = e.clientY - 16 + 'px';
+    });
+    document.querySelectorAll('a,button,.card,.card-sm,.micro-app,.pioneer-card,.prediction,.quiz-opt').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; cursorRing.style.transform = 'scale(1.5)'; cursorRing.style.borderColor = 'rgba(34,211,238,0.6)'; });
+      el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; cursorRing.style.transform = 'scale(1)'; cursorRing.style.borderColor = 'rgba(34,211,238,0.4)'; });
+    });
+  </script>
 </body>
 
 </html>

@@ -155,27 +155,49 @@ const htmlEl = document.documentElement;
 // تحميل الوضع المحفوظ
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
-  htmlEl.setAttribute('data-theme', savedTheme);
+    htmlEl.setAttribute('data-theme', savedTheme);
 }
 
 // زرار التبديل
 document.querySelectorAll('#darkToggle, #darkToggleMobile').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const isDark = htmlEl.getAttribute('data-theme') === 'dark';
-    const newTheme = isDark ? 'light' : 'dark';
+    btn.addEventListener('click', () => {
+        const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
 
-    htmlEl.setAttribute('data-theme', newTheme);
-    localStorage.setItem("theme", newTheme);
-  });
+        htmlEl.setAttribute('data-theme', newTheme);
+        localStorage.setItem("theme", newTheme);
+    });
 });
 
-  // Back to Top
-  const backTop = document.getElementById('backToTop');
-  if (backTop) {
-    window.addEventListener('scroll', function() {
-      backTop.classList.toggle('show', window.scrollY > 300);
+// Back to Top
+const backTop = document.getElementById('backToTop');
+if (backTop) {
+    window.addEventListener('scroll', function () {
+        backTop.classList.toggle('show', window.scrollY > 300);
     });
-    backTop.addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    backTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  }
+}
+
+// ══════════════════════════════
+// CURSOR
+// ══════════════════════════════
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX - 4 + 'px';
+    cursor.style.top = e.clientY - 4 + 'px';
+    cursorRing.style.left = e.clientX - 16 + 'px';
+    cursorRing.style.top = e.clientY - 16 + 'px';
+});
+document.querySelectorAll('a,button,.card,.card-sm,.micro-app,.pioneer-card,.prediction,.quiz-opt').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; cursorRing.style.transform = 'scale(1.5)'; cursorRing.style.borderColor = 'rgba(34,211,238,0.6)'; });
+    el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; cursorRing.style.transform = 'scale(1)'; cursorRing.style.borderColor = 'rgba(34,211,238,0.4)'; });
+});
+
+
+
+
+
+
